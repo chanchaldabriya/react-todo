@@ -1,13 +1,18 @@
-import React from 'react';
-import Todo from '../Todo/Todo';
+import React from "react";
+import Todo, { TodoProps } from "../Todo/Todo";
 
-function TodoList() {
-    return (
-      <div className="TodoList">
-        TodoList
-        <Todo />
-      </div>
-    );
+export interface TodoListProps {
+  todos: Array<TodoProps>;
+}
+
+function TodoList({ todos }: TodoListProps) {
+  return (
+    <ul className="TodoList">
+      {todos.map((todo, index) => (
+        <Todo key={`todo-${index}`} {...todo} />
+      ))}
+    </ul>
+  );
 }
 
 export default TodoList;

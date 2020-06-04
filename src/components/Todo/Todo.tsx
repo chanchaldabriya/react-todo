@@ -1,11 +1,21 @@
-import React from 'react';
+import React from "react";
 
-function Todo() {
-    return (
-      <div className="Todo">
-        Todo
-      </div>
-    );
+export interface TodoProps {
+  task: string;
+  completed?: boolean;
 }
-  
+
+function Todo({ task, completed = false }: TodoProps) {
+  return (
+    <li
+      className="Todo"
+      style={{
+        textDecoration: completed ? "line-through" : "none",
+      }}
+    >
+      {task}
+    </li>
+  );
+}
+
 export default Todo;
