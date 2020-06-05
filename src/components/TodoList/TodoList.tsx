@@ -8,6 +8,8 @@ export type TodoListStruct =  {
 export type TodoListProps = TodoListStruct & ToggleTodo;
 
 function TodoList({ todos, toggleTodo }: TodoListProps) {
+  if(todos.length <= 0)
+    return null;
   return (
     <ul className="TodoList">
       {todos.map((todo) => (

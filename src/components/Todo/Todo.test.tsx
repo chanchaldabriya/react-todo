@@ -63,7 +63,7 @@ describe("Todo", () => {
     test('calls toggleTodo method passed as props when clicked & passed id as paramter', () => {
         const mockTodo = {
             task: "A Complete task",
-            toggleTodo: jest.fn(),
+            toggleTodo: jest.fn(),      // mock function
             id: 5
         };
         const wrapper = shallow(<Todo {...mockTodo} />);
