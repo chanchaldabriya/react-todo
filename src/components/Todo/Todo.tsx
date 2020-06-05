@@ -1,4 +1,5 @@
 import React from "react";
+import './Todo.css';
 
 export type TodoStruct = {
   id: number;
@@ -24,7 +25,7 @@ function Todo({ task, completed = false, toggleTodo, id }: TodoProps) {
         toggleTodo(parseInt(e.currentTarget.dataset["id"] || ""))
       }
     >
-      {task}
+      <span style={{color: completed ? "#ccc" : "white",}}>{task}</span>
     </li>
   );
 }

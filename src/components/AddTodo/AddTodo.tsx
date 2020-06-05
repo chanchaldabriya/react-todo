@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './AddTodo.css';
 
 export interface AddTodoProps {
   addTodo: (task: string) => void;
@@ -13,16 +14,20 @@ function AddTodo({ addTodo }: AddTodoProps) {
         type="text"
         className="AddTodo-input"
         onChange={(e) => setText(e.target.value)}
+        placeholder={"Enter New task"}
         value={text}
       />
       <button
         className="AddTodo-btn"
-        onClick={(e) => {
-          addTodo(text);
-          setText("");
+        onClick={() => {
+          if(text.trim()) {
+            addTodo(text);
+            setText("");
+          }
         }}
+        disabled={!(text.trim().length > 0)}
       >
-        Add Task
+        + Add Task
       </button>
     </div>
   );

@@ -1,0 +1,35 @@
+.AddTodo {
+    display: flex;
+    padding: 10px;
+}
+
+.AddTodo-input,
+.AddTodo-btn {
+    background-color: transparent;
+    border: 1px solid #61dafb;
+    color: white;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 10px;
+}
+
+.AddTodo-input {
+    flex: 3;    
+}
+
+.AddTodo-btn {
+    flex: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.AddTodo-btn:hover {
+    background-color: #61dafb;
+}
+
+.AddTodo-btn[disabled] {
+    background-color: #999;
+    border: none;
+}
