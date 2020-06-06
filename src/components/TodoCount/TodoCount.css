@@ -1,0 +1,14 @@
+.TodoCount {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: flex-end;
+}
+
+.TodoCount-label {
+    font-weight: bold;
+}
+
+.TodoCount-count {
+    color: #61dafb;
+    margin-left: 10px;
+}
