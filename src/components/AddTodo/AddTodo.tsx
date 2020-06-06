@@ -1,28 +1,29 @@
-import React, { useState } from "react";
-import './AddTodo.css';
+import React from "react";
+import "./AddTodo.css";
+import { useTextInput } from "../../hooks/useTextInput";
 
 export interface AddTodoProps {
   addTodo: (task: string) => void;
 }
 
 function AddTodo({ addTodo }: AddTodoProps) {
-  const [text, setText] = useState("");
+  const [text, setText, resetText] = useTextInput("");
 
   return (
     <div className="AddTodo">
       <input
         type="text"
         className="AddTodo-input"
-        onChange={(e) => setText(e.target.value)}
+        onChange={setText}
         placeholder={"Enter New task"}
         value={text}
       />
       <button
         className="AddTodo-btn"
         onClick={() => {
-          if(text.trim()) {
+          if (text.trim()) {
             addTodo(text);
-            setText("");
+            resetText();
           }
         }}
         disabled={!(text.trim().length > 0)}
