@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import AddTodo from './AddTodo';
 
@@ -38,21 +37,21 @@ describe("AddTodo", () => {
         expect(wrapper.find('button').prop('disabled')).toBeTruthy();
 
         wrapper.find('.AddTodo-input').simulate('change', {
-            target: {
+            currentTarget: {
               value: '     '
             },
         });
         expect(wrapper.find('button').prop('disabled')).toBeTruthy();   // as value is still blank after trim()
 
         wrapper.find('.AddTodo-input').simulate('change', {
-            target: {
+            currentTarget: {
               value: 'Another task'
             },
         });
         expect(wrapper.find('button').prop('disabled')).toBeFalsy();
 
         wrapper.find('.AddTodo-input').simulate('change', {
-            target: {
+            currentTarget: {
               value: '  Another task  '
             },
         });
@@ -67,7 +66,7 @@ describe("AddTodo", () => {
 
         const mockTask = 'Another task';
         wrapper.find('.AddTodo-input').simulate('change', {
-            target: {
+            currentTarget: {
               value: mockTask
             },
         });
