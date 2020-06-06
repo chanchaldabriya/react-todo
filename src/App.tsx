@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import AddTodo from "./components/AddTodo/AddTodo";
 import TodoList from "./components/TodoList/TodoList";
 import { TodoStruct } from "./components/Todo/Todo";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
-  const [todos, setTodos] = useState<Array<TodoStruct>>([]);
+const [todos, setTodos] = useLocalStorage<Array<TodoStruct>>("todos", []);
 
   const addTodo: (task: string) => void = (task) => {
     const newTodo = {
